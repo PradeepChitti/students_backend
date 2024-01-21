@@ -14,6 +14,7 @@ const connectDB = async () => {
     );
   } catch (error) {
     console.log(error.message);
+    console.log("REACHED HERE========");
     process.exit(1);
   }
 };

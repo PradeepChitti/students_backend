@@ -4,7 +4,9 @@ const bodyParser = require("body-parser");
 const dotenv = require("dotenv").config();
 
 const connectDB = require("./db");
-const router = require("./routes");
+const router = require("./appRouter");
+const userRouter = require("./routes/userRoutes");
+const errorHandler = require("./middleware/errorHandler");
 
 const app = express();
 
@@ -24,6 +26,9 @@ connectDB();
 
 // routes
 app.use(router);
+app.use("/user", userRouter);
+//error Handler
+// app.use(errorHandler);
 
 app.listen(port, () => {
   console.log(`server is running on port ${port}`);
